@@ -7,6 +7,7 @@ var app = express();
 app.set('view engine','html');
 app.engine('html',require('ejs').__express);
 app.set('views',path.join(__dirname,'views'));
+app.use(express.static(path.join(__dirname,'public')));
 app.use('/user',user);
 app.use('/article',article);
 app.use('/',index);
