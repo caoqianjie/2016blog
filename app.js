@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var bodyParser = require('body-parser');
 var user = require('./routes/user.js');
 var article = require('./routes/article.js');
 var index = require('./routes/index.js');
@@ -7,6 +8,7 @@ var app = express();
 app.set('view engine','html');
 app.engine('html',require('ejs').__express);
 app.set('views',path.join(__dirname,'views'));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'public')));
 app.use('/user',user);
 app.use('/article',article);

@@ -1,0 +1,21 @@
+{
+  "name": "2016blog",
+  "description": "2016blog",
+  "main": "index.js",
+  "authors": [
+    "caoqianjie <785186047@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/caoqianjie/2016blog",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

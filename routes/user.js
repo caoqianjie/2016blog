@@ -1,11 +1,31 @@
 var express = require('express');
+var User = require('../db').User;
 //调用express Router 方法可以得到一个路径的实例
 var router = express.Router();
 router.get('/signup',function (req, res) {
-    res.render('./user/signup',{title:'首页'})
+    res.render('user/signup',{title:'注册'})
+});
+router.post('/signup',function (req, res) {
+   var user = req.body;
+   User.create(user,function (err, doc) {
+       if(err)console.log(err);
+       else{
+           res.redirect('/');
+       }
+   })
 });
 router.get('/signin',function (req, res) {
     res.render('./user/signin',{title:'登录'})
+});
+router.post('/signin',function (req,res) {
+    var user = req.body;
+    User.findOne(user,function (err, doc) {
+        if(err) {
+            res.redirect('/user/signin');
+        }else{
+            res.render('user/success',{title:'跳转中'})
+        }
+    })
 });
 router.get('/signout',function (req, res) {
     res.redirect('/');
