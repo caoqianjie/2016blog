@@ -1,0 +1,23 @@
+{
+  "name": "2016blog",
+  "version": "1.0.0",
+  "description": "2016blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caoqianjie/2016blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caoqianjie/2016blog/issues"
+  },
+  "homepage": "https://github.com/caoqianjie/2016blog#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
