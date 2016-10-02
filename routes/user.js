@@ -30,6 +30,7 @@ router.post('/signin',function (req,res) {
     })
 });
 router.get('/signout',function (req, res) {
+    req.session.user = null;
     res.redirect('/');
 });
 module.exports = router;
