@@ -20,10 +20,12 @@ router.get('/signin',function (req, res) {
 router.post('/signin',function (req,res) {
     var user = req.body;
     User.findOne(user,function (err, doc) {
-        if(err) {
-            res.redirect('/user/signin');
-        }else{
+        if(doc) {
+            req.session.user = doc;
             res.render('user/success',{title:'跳转中'})
+        }else{
+            res.redirect('/user/signin');
+
         }
     })
 });
