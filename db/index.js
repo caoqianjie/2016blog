@@ -1,10 +1,12 @@
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
-mongoose.connect('mongodb://localhost:27017/201607blog');
+var dbUrl = require('../config').dbUrl;
+mongoose.connect(dbUrl);
 var UserSchema = new mongoose.Schema({
     username: String,
     password: String,
-    email: String
+    email: String,
+    avatar: String
 });
 exports.User = mongoose.model('User',UserSchema);
 var ArticleSchema = new mongoose.Schema({

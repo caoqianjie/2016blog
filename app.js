@@ -1,8 +1,10 @@
 var express = require('express');
 var path = require('path');
+var config = require('./config');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
+var MongoStore=require('connect-mongo')(session);
 var user = require('./routes/user.js');
 var article = require('./routes/article.js');
 var index = require('./routes/index.js');
@@ -16,7 +18,10 @@ app.use(cookieParser());
 app.use(session({
     secret: 'zfpx',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store:new MongoStore({
+        url:config.dbUrl
+    })
 }));
 app.use(function (req,res,next) {
    res.locals.user = req.session.user;
